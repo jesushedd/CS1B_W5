@@ -2,14 +2,39 @@ package Map61B;
 
 import org.junit.Test;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import static org.junit.Assert.*;
 
-public class ArrayMap<C, V> implements Map61B<C,V> {
+public class ArrayMap<C, V> implements Map61B<C,V>, Iterable<C> {
+
+
     private C[] keys;
     private V[] values;
     int size; /*The next item will be added at (size) index*/
+
+    private class KeyIterator  implements Iterator<C>{
+        private int wizardP;
+        public KeyIterator(){
+            wizardP = 0;
+        }
+
+        public boolean hasNext(){
+            return size > wizardP;
+        }
+
+        public C next(){
+            C returnItem = keys[wizardP];
+            wizardP++;
+            return returnItem;
+        }
+    }
+
+    @Override
+    public KeyIterator iterator() {
+        return new KeyIterator();
+    }
 
     public ArrayMap(){
         keys = (C[]) new Object[100];
