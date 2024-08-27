@@ -1,4 +1,4 @@
-package Map61B;
+package src.main.Map61B;
 
 public class IteratorDemo {
     public static void main(String[] args) {

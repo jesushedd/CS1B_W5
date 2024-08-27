@@ -1,4 +1,4 @@
-package Map61B;
+package src.main.Map61B;
 
 import org.junit.Test;
 
@@ -7,11 +7,11 @@ import java.util.LinkedList;
 import java.util.List;
 import static org.junit.Assert.*;
 
-public class ArrayMap<C, V> implements Map61B<C,V>, Iterable<C> {
+public class ArrayMap<C extends Comparable<C>, V> implements Map61B<C ,V>, Iterable<C> {
 
 
-    private C[] keys;
-    private V[] values;
+    protected C[] keys;
+    protected V[] values;
     int size; /*The next item will be added at (size) index*/
 
     private class KeyIterator  implements Iterator<C>{
@@ -37,8 +37,8 @@ public class ArrayMap<C, V> implements Map61B<C,V>, Iterable<C> {
     }
 
     public ArrayMap(){
-        keys = (C[]) new Object[100];
-        values = (V[]) new Object[100];
+        keys = (C[]) new Comparable[100];
+        values = (V[]) new Comparable[100];
         size = 0;
     }
 

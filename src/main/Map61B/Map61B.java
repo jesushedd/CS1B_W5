@@ -1,4 +1,4 @@
-package Map61B;
+package src.main.Map61B;
 
 import java.util.List;
 
